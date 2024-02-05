@@ -1,0 +1,49 @@
+* {
+	padding: 0;
+	margin: 0;
+
+	box-sizing: border-box;
+}
+
+#root {
+	display: flex;
+	flex-direction: row;
+	gap: 50px 20px;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	padding: 20px;
+}
+
+.car {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	width: 100%;
+	max-width: 250px;
+	min-height: 200px;
+
+	border: 2px solid black;
+	border-radius: 5px;
+
+	padding: 20px;
+}
+
+.number {
+	position: absolute;
+
+	top: 5px;
+	right: 5px;
+}
+
+.price {
+	position: absolute;
+	bottom: -25px;
+	left: 50%;
+	transform: translateX(-50%);
+
+	width: max-content;
+}
