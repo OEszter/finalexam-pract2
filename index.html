@@ -6,7 +6,9 @@
 	<title>Document</title>
 
 	<script src="data.js"></script>
-	<script src="script.js" defer></script>
+	<script src="script.js" defer></script> 
+	<!-- MIVEL a data.js előtte van belinkelve, ezért a script.js már látja az abban lévő tartalmat; konkrétan a cars változót 
+	Magyarán a később jövő importálás látja az előző importálást. Ez a JS egy sajátossága-->
 
 	<link rel="stylesheet" href="style.css">
 </head>

@@ -1,3 +1,5 @@
+/* CSS-reset */
+
 * {
 	padding: 0;
 	margin: 0;
@@ -7,43 +9,50 @@
 
 #root {
 	display: flex;
-	flex-direction: row;
-	gap: 50px 20px;
-	flex-wrap: wrap;
-	justify-content: center;
+	flex-direction: row;  /* egy sorba rendezze */
+	gap: 50px 20px;    /*  eltolás a kártyák között. Fent - oldalon. */
+	flex-wrap: wrap;   /* Ha nem fér el egymás mellett több kártya, törd le új sorba. */
+	justify-content: center;    /* Az oldaliráynú tengelyen (row flex) helyezze középre a tartalmat*/
 
-	padding: 20px;
+	padding: 20px;  /* Az oldal szélétől eltolás */
 }
 
 .car {
-	position: relative;
+	/* Szeretnénk egymás mellé helyezni a kártyákat. Ehhez ennek az elemnek a szülőeleménél kell flexelni. Mert a flex mindig a szülőelemre kerül é s agyermekekre hat. Lásd: #root*/
+	position: relative;    /* Ezt felhasználjuk kapaszkodóként a kisebb elemeknél. Ez a szülőelem */
 
+	/* Szeretnénk, h a kártyákban egy oszlopba legyenek rendezve, középre, és a két adat legyen az egyik a tetején, másik az alján: space-between*/
 	display: flex;
-	flex-direction: column;
+	flex-direction: column;   
 	justify-content: space-between;
 
-	width: 100%;
-	max-width: 250px;
+	width: 100%;  /* Ez a szülő szélességének a százalékát jelenti */
+	max-width: 250px;    /* így nem nyúlik ki az oldal teljes széléig. EZ egy fölső limitet ad. */
 	min-height: 200px;
 
 	border: 2px solid black;
-	border-radius: 5px;
+	border-radius: 5px;        /* lekerekített szélek */
 
-	padding: 20px;
+	padding: 20px;  /* kártya belső eltolása a szélétől*/
 }
 
 .number {
-	position: absolute;
+	position: absolute;    /* Ez kiveszi a normál rendering flow-ből az elemet. Ez bele tud kapaszkodni a szülőelembe, a car-ba, és lentebb azt mondom, hogy a jobb felső sarokba helyezkedjen (top és right) */
 
 	top: 5px;
 	right: 5px;
 }
 
 .price {
-	position: absolute;
-	bottom: -25px;
-	left: 50%;
-	transform: translateX(-50%);
-
+	position: absolute; /* mivel a kártyán kívül akarjuk elhelyezni */
+	bottom: -25px;   /* Így a kártyához kapcsolódik, de a kártyán kívül lesz. */
+	left: 50%;   /* Ez az elem bal felső sarkát helyezi az 50%-ra. */
+	transform: translateX(-50%);  /* Az X tengelyen szeretnénk visszább húzni. A saját máretéhez képest mozog a tengelyen, nem a szülő méretéhez képest. */
+	
 	width: max-content;
 }
+/* Ahhoz, hogy  középre helyezze az árat, három dolog kell:
+left: 50%;
+transform: translateX(-50%);
+width: max-content;
+ */
