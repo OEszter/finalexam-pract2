@@ -61,7 +61,7 @@ function getPossibleCustomers(people, newItem) {
 
 			person.latestPurchases.forEach(purchase => {
 				if (purchase.item === newItem.item && purchase.price > newItem.price) {
-					possibleCustomer = true
+					possibleCustomer = true //ha többször is igaz rá az állítás, akkor is csak egyszer fogjuk ez alapján belepusholni a végeredménybe a 68. sortól
 				}
 			})
 
