@@ -4,21 +4,36 @@ import LoadingMask from './components/LoadingMask'
 import People from './components/People'
 
 function App() {
-  const [people, setPeople] = useState(null)
+  const [people, setPeople] = useState(null)  //kimentjük egy tstbe a fetchet
 
+  // ------- FETCH ------ 10-14. sor
   useEffect(() => {
     fetch("https://swapi.dev/api/people/")
       .then(res => res.json())
       .then(data => setPeople(data))
   }, [])
 
+
+  //---- amíg nincsen adatunk, addig kiírja: loading... VAGY a LoadinMask-ot
+  /* ehhez eredetileg elög ez is: 
   return (
     <>
       {people 
         ? 
-        <People people={people.results}/>
+        <div className='people><div/>
         :
-        <LoadingMask />
+        <p>loading...<p/>
+      }
+    </>
+  )
+   */
+  return (
+    <>
+      {people 
+        ? 
+        <People people={people.results}/> //Ha van adatunk, akkor a People komponenst futtatjuk
+        :
+        <LoadingMask />  //Ameddig nem töltődik be a fetchünk, addig a LoadingMask fog megjelenni.
       }
     </>
   )
