@@ -5,7 +5,7 @@ class Customer {
 		this.registeredSince = registeredSince
 	}
 
-	totalSpent() {
+	totalSpent() { //Megadja, hogy mennyit költött az adott Costumer példány, akire meghívjuk ezt a metódust
 		let result = 0
 
 		this.purchases.forEach(purchase => result += purchase.price)
@@ -62,12 +62,13 @@ console.log(customer2.isVip())
 console.log(customer3.isVip())
 console.log(customer4.isVip()) */
 
+//Megadja, hány VIP customerünk van.
 class VipCustomers {
 	static getNumberOfVipCustomers(customers) {
 		let result = []
 
 		customers.forEach(customer => {
-			if (customer.isVip() === true) {
+			if (customer.isVip() === true) {  //Az isVip metódus meghívásakor ki kell tenni a ()-ket!
 				result.push(customer)
 			}
 		})
@@ -76,4 +77,5 @@ class VipCustomers {
 	}
 }
 
+//Meghívjuk a VipCostumers-ben lévő metódus
 console.log(VipCustomers.getNumberOfVipCustomers([customer1, customer2, customer3, customer4]))
