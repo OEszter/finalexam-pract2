@@ -3,11 +3,11 @@ const testString = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Na
 function decodeText(text) {
 	const words = text.split(" ")
 
-	let result = []
+	let result = [] //ez azért kell, mert a forEach nem return-öl
 
 	words.forEach(word => {
 		let wordLength = word.length
-		let found = false
+		let found = false  //Ez az írásjelet nézi, hogy van-e
 
 		if (word[wordLength - 1] === "!" || word[wordLength - 1] === "," || word[wordLength - 1] === ".") {
 			wordLength--
@@ -22,10 +22,11 @@ function decodeText(text) {
 			} else {
 				newWord = word.split('').reverse().join('')
 			}
-			// ["a", "m", "e", "t"]
 
-			/* for (let i = wordLength - 1; i >= 0; i--) {
-				newWord += word[i]
+			/*  -------------- ÍGY HÁTULRÓL FUT VÉGIG A SZAVAKON: -----------
+			
+			for (let i = wordLength - 1; i >= 0; i--) {
+				newWord += word[i]	
 			} */
 
 			if (found === true) {
